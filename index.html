@@ -11,7 +11,7 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src="Vite Raven.png" alt="Vite Raven Logo"> <!-- New logo added -->
+                <img src="Vite Raven.png" alt="Vite Raven Logo"> <!-- Vite Raven logo -->
                 <h1>Vite Raven</h1>
             </div>
             <nav>
@@ -20,7 +20,7 @@
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#" id="contactLink">Contact Us</a></li> <!-- Changed to trigger pop-up -->
                 </ul>
             </nav>
         </div>
@@ -28,10 +28,36 @@
 
     <main>
         <section id="home" class="hero">
-            <div class="container">
-                <h2>Empowering Safety for Women & Children</h2>
-                <p>Your trusted partner in protection and peace of mind. We stand for security, dignity, and a safer tomorrow.</p>
-                <a href="#contact" class="btn">Get in Touch</a>
+            <div class="carousel-container">
+                <div class="carousel-slide fade">
+                    <img src="image_abdce1.png" alt="Tri-color abstract background"> <!-- New tri-color background image -->
+                    <div class="hero-content">
+                        <h2>Empowering Safety for Women & Children</h2>
+                        <p>Your trusted partner in protection and peace of mind. We stand for security, dignity, and a safer tomorrow.</p>
+                        <a href="#" class="btn open-modal-btn">Get in Touch</a> <!-- Button to open contact modal -->
+                    </div>
+                </div>
+                <div class="carousel-slide fade">
+                    <img src="images/hero-bg-2.jpg" alt="Second hero background image"> <!-- Placeholder for another hero image -->
+                    <div class="hero-content">
+                        <h2>Vigilance. Protection. Peace of Mind.</h2>
+                        <p>Dedicated to creating a secure environment for every woman and child.</p>
+                        <a href="#" class="btn open-modal-btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="carousel-slide fade">
+                    <img src="images/hero-bg-3.jpg" alt="Third hero background image"> <!-- Placeholder for another hero image -->
+                    <div class="hero-content">
+                        <h2>A Safer Tomorrow, Today.</h2>
+                        <p>Comprehensive security solutions tailored for your peace of mind.</p>
+                        <a href="#" class="btn open-modal-btn">Our Services</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-dots">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
             </div>
         </section>
 
@@ -87,37 +113,6 @@
                 <p class="gallery-note">*(Image placeholders - replace with actual photos of your team, training, etc., ensuring privacy and professionalism.)*</p>
             </div>
         </section>
-
-        <section id="contact" class="contact-us">
-            <div class="container">
-                <h3>Contact Us</h3>
-                <p>Reach out to us for a confidential consultation or to learn more about our services.</p>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Your Name:</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Your Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number (Optional):</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Your Message:</label>
-                        <textarea id="message" name="message" rows="6" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
-                <div class="contact-info">
-                    <p><strong>Email:</strong> info@viteraven.com</p>
-                    <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
-                    <p><strong>Address:</strong> [Your Agency Address Here]</p>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer>
@@ -130,5 +125,106 @@
             </div>
         </div>
     </footer>
+
+    <!-- Contact Modal Pop-up -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Contact Vite Raven</h3>
+            <p>Reach out to us for a confidential consultation or to learn more about our services.</p>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="modal-name">Your Name:</label>
+                    <input type="text" id="modal-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="modal-email">Your Email:</label>
+                    <input type="email" id="modal-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="modal-phone">Phone Number (Optional):</label>
+                    <input type="tel" id="modal-phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="modal-message">Your Message:</label>
+                    <textarea id="modal-message" name="message" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <p><strong>Email:</strong> info@viteraven.com</p>
+                <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
+                <p><strong>Address:</strong> [Your Agency Address Here]</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for Carousel
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("carousel-slide");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+        // Automatic slideshow (optional)
+        // setInterval(function() {
+        //     plusSlides(1);
+        // }, 5000); // Change image every 5 seconds
+
+        // Function to advance slides (if automatic is enabled)
+        // function plusSlides(n) {
+        //     showSlides(slideIndex += n);
+        // }
+
+
+        // JavaScript for Modal Pop-up
+        const contactModal = document.getElementById("contactModal");
+        const openModalBtns = document.querySelectorAll(".open-modal-btn");
+        const contactLink = document.getElementById("contactLink");
+        const closeButton = document.querySelector(".close-button");
+
+        // Open modal when "Get in Touch" button or "Contact Us" nav link is clicked
+        openModalBtns.forEach(btn => {
+            btn.addEventListener("click", function(event) {
+                event.preventDefault(); // Prevent default link behavior
+                contactModal.style.display = "block";
+            });
+        });
+
+        contactLink.addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            contactModal.style.display = "block";
+        });
+
+        // Close modal when close button is clicked
+        closeButton.addEventListener("click", function() {
+            contactModal.style.display = "none";
+        });
+
+        // Close modal when clicking outside of the modal content
+        window.addEventListener("click", function(event) {
+            if (event.target == contactModal) {
+                contactModal.style.display = "none";
+            }
+        });
+    </script>
 </body>
 </html>
