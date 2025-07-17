@@ -1,0 +1,405 @@
+/* Basic Reset & Body Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4; /* Light background */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+/* --- Header & Navigation Bar --- */
+header {
+    background-color: #FF9933; /* Saffron - Top bar */
+    color: #fff;
+    padding: 10px 0;
+    border-bottom: 5px solid #138808; /* Green - Bottom border */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px; /* Adjusted logo size */
+    margin-right: 10px;
+    border-radius: 5px; /* Slightly rounded corners for logo */
+}
+
+.logo h1 {
+    font-size: 2em;
+    margin: 0;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #000080; /* Dark Blue - Ashoka Chakra color */
+}
+
+/* --- Hero Section (Home) --- */
+.hero {
+    /* Dark shiny gray base with semi-transparent tri-color gradient overlay */
+    background: linear-gradient(to bottom,
+                                rgba(255, 153, 51, 0.4), /* Saffron with transparency */
+                                rgba(255, 255, 255, 0.4), /* White with transparency */
+                                rgba(19, 136, 8, 0.4)), /* Green with transparency */
+                                #333333; /* Dark gray base */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+    min-height: 500px; /* Ensure sufficient height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Text shadow for readability */
+}
+
+.hero h2 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: #FFFFFF; /* White */
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    max-width: 700px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #138808; /* Indian Green */
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #006400; /* Darker Green */
+}
+
+/* --- General Section Styling --- */
+section {
+    padding: 60px 0;
+    background-color: #fff; /* Default white background for sections */
+    margin-bottom: 20px; /* Space between sections */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+    border-radius: 8px; /* Slightly rounded corners */
+}
+
+section:nth-of-type(even) {
+    background-color: #fcfcfc; /* Slightly different background for alternating sections */
+}
+
+section h3 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #000080; /* Ashoka Chakra Blue */
+    position: relative;
+}
+
+section h3::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #138808; /* Indian Green */
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* --- About Us Section --- */
+.about-us .about-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Allows content to wrap on smaller screens */
+}
+
+.about-us .about-content img {
+    flex: 1;
+    min-width: 300px;
+    max-width: 45%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.about-us .about-content p {
+    flex: 2;
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* --- Services Section --- */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.service-item {
+    background-color: #FFFFFF; /* White */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    border-top: 5px solid #FF9933; /* Saffron top border */
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+}
+
+.service-item img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.service-item h4 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #000080; /* Ashoka Chakra Blue */
+}
+
+.service-item p {
+    color: #666;
+}
+
+/* --- Gallery Section --- */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.image-gallery img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistent look */
+    object-fit: cover; /* Crops images to fit without distortion */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.03);
+}
+
+.gallery-note {
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+    color: #888;
+}
+
+/* --- Contact Us Section --- */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #FF9933; /* Saffron border on focus */
+    outline: none;
+}
+
+.contact-form .btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+    background-color: #000080; /* Ashoka Chakra Blue */
+    color: #fff;
+}
+
+.contact-form .btn:hover {
+    background-color: #000050; /* Darker Blue */
+}
+
+.contact-info {
+    text-align: center;
+    font-size: 1.1em;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed #ccc;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    transition: transform 0.3s ease;
+}
+
+.social-links img:hover {
+    transform: translateY(-3px);
+}
+
+/* --- Responsive Design (Basic) --- */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        margin-top: 15px;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    .hero h2 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .about-us .about-content {
+        flex-direction: column;
+    }
+
+    .about-us .about-content img {
+        max-width: 100%;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .image-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    footer .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .social-links {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.5em;
+    }
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+    section h3 {
+        font-size: 2em;
+    }
+}
